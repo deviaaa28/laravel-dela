@@ -39,5 +39,14 @@ class SiswaController extends Controller
             $data->delete();
             return redirect()->route('siswa');
         }
-    
+
+        public function edit($id){
+
+        // menemukan siswa berdasarkan id
+        $data =Student::findOrFail($id);
+
+        // mengirimkan data berdasarkan id
+        return view('edit.siswa',compact('data'));
+        }
+
 }
