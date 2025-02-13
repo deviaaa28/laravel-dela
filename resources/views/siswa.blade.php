@@ -1,5 +1,5 @@
 @extends('partials.main')
-
+{{-- partials : folder yang digunakan untuk menyimpan tampilan kecil (partial views) yang dapat digunakan kembali di banyak halaman. --}}
 @section('content')
     <h1>Data Siswa</h1>
     <a href="{{ Route('siswa.add') }}" class= "btn btn-success">Tambah Data</a>
@@ -24,13 +24,13 @@
                         <td>{{ $sw['alamat'] }}</td>
                         <td>{{ $sw['jeniskelamin'] }}</td>
                         <td>
-                            <form action="siswa/{{ $sw['id'] }}" method="POST">
+                            <form action="{{ Route('siswa.delete', $sw['id']) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-secondary">Delete</button>
+                                <button class="btn btn-secondary"  type="submit" onclick="return confirm('yakin ingin menghapus data ini')">Delete</button>
+                                <a class="btn btn-primary" href="siswa/edit/{{ $sw['id'] }}">Edit</a>
                             </form>
 
-                            <a class="btn btn-primary" href="{{Route('siswa.edit',$sw['id'])}}">Edit</a>
                         </td>
                     </tr>
                 @endforeach

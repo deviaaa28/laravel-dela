@@ -18,7 +18,7 @@
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="{{Route('home')}}">Home</a>
               <a class="nav-link" href="{{Route('siswa')}}">Siswa</a>
-              <a class="nav-link" href="{{Route('About')}}">About</a>
+              <a class="nav-link" href="{{Route('about')}}">About</a>
             </div>
           </div>
         </div>
